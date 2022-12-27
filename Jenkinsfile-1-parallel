@@ -8,12 +8,12 @@ pipeline {
           stages {
             stage('Build') {
               steps {
-                sh 'echo Do Build for windows'
+                 powershell returnStatus: true, script: 'echo Do Build for windows'
               }
             }
             stage('Test') {
               steps {
-                sh 'echo Do Test for windows'
+                 powershell returnStatus: true, script: 'echo Do Build for windows'
               }
             }
           }
