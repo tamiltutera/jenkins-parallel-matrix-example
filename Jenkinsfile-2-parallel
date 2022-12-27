@@ -3,51 +3,37 @@ pipeline {
   stages {
     stage('BuildAndTest') {
       parallel {
-        stage('macos-chrome') {
-          agent {label 'macos-chrome'}
+        stage('windows-chrome') {
+          agent {label 'windows'}
           stages {
             stage('Build') {
               steps {
-                sh 'echo Do Build for macos-chrome'
+                sh 'echo Do Build for windows'
               }
             }
             stage('Test') {
               steps {
-                sh 'echo Do Test for macos-chrome'
+                sh 'echo Do Test for windows'
               }
             }
           }
         }
-        stage('macos-firefox') {
-          agent {label 'macos-firefox'}
+        stage('windows-firefox') {
+          agent {label 'windows-firefox'}
           stages {
             stage('Build') {
               steps {
-                sh 'echo Do Build for macos-firefox'
+                sh 'echo Do Build for windows-firefox'
               }
             }
             stage('Test') {
               steps {
-                sh 'echo Do Test for macos-firefox'
+                sh 'echo Do Test for windows-firefox'
               }
             }
           }
         }
-        stage('macos-safari') {
-          agent {label 'macos-safari'}
-          stages {
-            stage('Build') {
-              steps {
-                sh 'echo Do Build for macos-safari'
-              }
-            }
-            stage('Test') {
-              steps {
-                sh 'echo Do Test for macos-safari'
-              }
-            }
-          }
-        }
+       
         stage('linux-chrome') {
           agent {label 'linux-chrome'}
           stages {
@@ -77,22 +63,7 @@ pipeline {
               }
             }
           }
-        }
-        stage('linux-safari') {
-          agent {label 'linux-safari'}
-          stages {
-            stage('Build') {
-              steps {
-                sh 'echo Do Build for linux-safari'
-              }
-            }
-            stage('Test') {
-              steps {
-                sh 'echo Do Test for linux-safari'
-              }
-            }
-          }
-        }
+        }       
       }
     }
   }
