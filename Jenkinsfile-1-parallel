@@ -3,17 +3,17 @@ pipeline {
   stages {
     stage('BuildAndTest') {
       parallel {
-        stage('macos') {
-          agent {label 'macos'}
+        stage('windows') {
+          agent {label 'windows'}
           stages {
             stage('Build') {
               steps {
-                sh 'echo Do Build for macos'
+                sh 'echo Do Build for windows'
               }
             }
             stage('Test') {
               steps {
-                sh 'echo Do Test for macos'
+                sh 'echo Do Test for windows'
               }
             }
           }
